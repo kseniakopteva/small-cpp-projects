@@ -4,5 +4,6 @@
 **/Debug/*.pdb
 **/Debug/*.txt
 **/Debug/*.idb
-**/Debug/array-ma.bec3ea65.tlog
+**/Debug/**/*.lastbuildstate
+**/Debug/**/*.tlog
 **/.vs/
