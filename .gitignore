@@ -1,8 +1,8 @@
-**Debug/*.log
-**Debug/*.ilk
-**Debug/*.ogj
-**Debug/*.pdb
-**Debug/*.txt
-**Debug/*.idb
-**Debug/array-ma.bec3ea65.tlog
-**.vs/
+**/Debug/*.log
+**/Debug/*.ilk
+**/Debug/*.ogj
+**/Debug/*.pdb
+**/Debug/*.txt
+**/Debug/*.idb
+**/Debug/array-ma.bec3ea65.tlog
+**/.vs/
