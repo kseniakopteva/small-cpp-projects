@@ -40,13 +40,13 @@ int main() {
 	//пока никто не выиграл, очищается экран
 	//и если ввод вернул неудачу, выводит ошибку
 	while (!win()) {
-		system("cls");
 		//если число ходов равно 9, то объявляется ничья
 		if (i == 9) {
 			cout << "Ничья!";
 			_getch();
 			return -1;
 		}
+		system("cls");
 		if (!input()) {
 			cout << "Ваш ввод недопустим! Нажмите любую клавишу, чтобы продолжить";
 			_getch();
@@ -57,8 +57,8 @@ int main() {
 	system("cls");
 	
 	if (turn)
-		cout << "Победил " << player2 << endl;
-	else cout << "Победил " << player1 << endl;
+		cout << "Победил " << player2 << "!" << endl;
+	else cout << "Победил " << player1 << "!" << endl;
 
 	_getch();
 	return 0;
@@ -96,8 +96,8 @@ bool input() {
 	cout << endl;
 
 	if (turn)
-		cout << "Ходит " << player1 << " : ";
-	else cout << "Ходит " << player2 << " : ";
+		cout << "Ходит " << player1 << ": ";
+	else cout << "Ходит " << player2 << ": ";
 
 	//переменная для введенной игроком цифры
 	int n;
