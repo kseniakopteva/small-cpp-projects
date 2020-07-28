@@ -1,6 +1,10 @@
 #include <iostream>
 #include <conio.h>
+
+#define FIRST
+
 using namespace std;
+
 
 void fillArr(int* const arr, int const size) {
 	for (int i = 0; i < size; i++)
@@ -43,7 +47,11 @@ int main() {
 
 
 
+
 	//	--- Dynamic memory allocation and its removal ---
+	
+#ifdef FIRST
+
 	int* var = new int;
 	*var = 10;
 
@@ -51,9 +59,14 @@ int main() {
 	delete var;
 	var = nullptr;
 
-	//-------------------------------------
+#endif
+
+
+
 
 	//	--- Dynamic arrays ---
+#ifdef SECOND
+
 	int size = 10;
 	int* arr1 = new int[size];
 
@@ -61,9 +74,15 @@ int main() {
 
 	delete[] arr1;
 
+#endif
+
 	//-------------------------------------
 
+
+
+
 	//	--- Dynamic 2d array ---
+#ifdef THIRD
 
 	int rows = 5;
 	int cols = 5;
@@ -82,11 +101,15 @@ int main() {
 	}
 
 	delete[] arr2;
+#endif
 
 	//-------------------------------------
-	//-------------------------------------
+
+
+
 
 	//	--- Copying a dynamic array ---
+#ifdef FOURTH
 
 	int firstSize = 10;
 	int secondSize = 5;
@@ -98,9 +121,9 @@ int main() {
 	fillArr(firstArr, firstSize);
 	fillArr(secondArr, secondSize);
 
-	//showArr(firstArr, firstSize);
-	//cout << endl;
-	//showArr(secondArr, secondSize);
+	showArr(firstArr, firstSize);
+	cout << endl;
+	showArr(secondArr, secondSize);
 
 	//1. delete data from arr1
 	delete[] secondArr;
@@ -114,18 +137,23 @@ int main() {
 		secondArr[i] = firstArr[i];
 	}
 
-	//cout << endl << endl << "Whoosh!" << endl << endl;
+	cout << endl << endl << "Whoosh!" << endl << endl;
 
-	//showArr(firstArr, firstSize);
-	//cout << endl;
-	//showArr(secondArr, firstSize);
+	showArr(firstArr, firstSize);
+	cout << endl;
+	showArr(secondArr, firstSize);
 
 	delete[] firstArr;
 	delete[] secondArr;
 
+#endif
 	//-------------------------------------
 
+
+
+
 	//	--- Adding an element to the end of the array ---
+#ifdef FIFTH
 
 	int Size = 5;
 	int* Arr = new int[Size];
@@ -138,6 +166,9 @@ int main() {
 
 
 	delete[] Arr;
+
+#endif
+
 
 	_getch();
 }
