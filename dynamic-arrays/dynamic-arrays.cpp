@@ -16,6 +16,29 @@ void showArr(const int* const arr, int const size) {
 	}
 }
 
+void push_back(int *&arr, int &size, const int value) {
+
+	//making new array with one more slot
+	int* newArray = new int[size + 1];
+
+	//transfering all existing values
+	for (int i = 0; i < size; i++)
+	{
+		newArray[i] = arr[i];
+	}
+
+	//adding the element
+	newArray[size] = value;
+	//size is now larger
+	size++;
+
+	//deleting the old array
+	delete[] arr;
+
+	//now a pointer should point to a new array
+	arr = newArray;
+}
+
 int main() {
 
 
@@ -75,9 +98,9 @@ int main() {
 	fillArr(firstArr, firstSize);
 	fillArr(secondArr, secondSize);
 
-	showArr(firstArr, firstSize);
-	cout << endl;
-	showArr(secondArr, secondSize);
+	//showArr(firstArr, firstSize);
+	//cout << endl;
+	//showArr(secondArr, secondSize);
 
 	//1. delete data from arr1
 	delete[] secondArr;
@@ -91,14 +114,30 @@ int main() {
 		secondArr[i] = firstArr[i];
 	}
 
-	cout << endl << endl << "Whoosh!" << endl << endl;
+	//cout << endl << endl << "Whoosh!" << endl << endl;
 
-	showArr(firstArr, firstSize);
-	cout << endl;
-	showArr(secondArr, firstSize);
+	//showArr(firstArr, firstSize);
+	//cout << endl;
+	//showArr(secondArr, firstSize);
 
 	delete[] firstArr;
 	delete[] secondArr;
+
+	//-------------------------------------
+
+	//	--- Adding an element to the end of the array ---
+
+	int Size = 5;
+	int* Arr = new int[Size];
+	fillArr(Arr, Size);
+
+	showArr(Arr, Size);
+	cout << endl << endl << "Whoosh!" << endl << endl;
+	push_back(Arr, Size, 25);
+	showArr(Arr, Size+1);
+
+
+	delete[] Arr;
 
 	_getch();
 }
