@@ -26,6 +26,11 @@ public:
 		//...
 	}
 	
+	// перегрузка оператора равенства
+	bool operator == (const Person & other) {
+		return this->age == other.age && this->name == other.name;
+	}
+
 	string getName() {
 		return name;
 	}
