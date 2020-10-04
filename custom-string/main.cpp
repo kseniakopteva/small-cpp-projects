@@ -9,11 +9,13 @@ public:
 	//конструктор без параметров
 	String() {
 		str = nullptr;
+		length = 0;
 	}
 	
 	//параметр строка
 	String(const char *str) {
-		int length = strlen(str);
+		length = strlen(str);
+
 		this->str = new char[length+1];
 
 		for (int i = 0; i < length; i++)
@@ -23,7 +25,6 @@ public:
 
 		this->str[length] = '\0';
 
-
 	}
 
 	//деструктор
@@ -31,11 +32,10 @@ public:
 		delete[] this->str;
 	}
 
-
-
+	//конструктор копирования
 	String(const String& other) {
 
-		int length = strlen(other.str);
+		length = strlen(other.str);
 		this->str = new char[length + 1];
 
 		for (int i = 0; i < length; i++)
@@ -47,8 +47,7 @@ public:
 
 	}
 
-
-
+	//перегрузка оператора присваивания
 	String& operator =(const String &other) {
 		if (this->str != nullptr) {
 			delete[] str;
@@ -67,11 +66,14 @@ public:
 		return *this;
 	}
 
+	//перегрузка оператора сложения (конкатенация)
 	String & operator +(const String& other) {
 		String newStr;
 
 		int thisLength = strlen(this->str);
 		int otherLength = strlen(other.str);
+
+		length = thisLength + otherLength;
 
 		newStr.str = new char[thisLength + otherLength + 1];
 
@@ -92,14 +94,19 @@ public:
 
 	}
 
-	void getStr() {
+	void Print() {
 		cout << str << endl;
+	}
+
+	int Length() {
+		return length;
 	}
 
 private:
 	char* str;
-
+	int length;
 };
+
 
 int main() {
 
@@ -108,7 +115,6 @@ int main() {
 	
 	String result;
 	result = str + str2;
-	//cout << result;
 
 	return 0;
 }
